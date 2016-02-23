@@ -6,9 +6,9 @@
 
 ## Description
 
-_This web app is designed to. The app was built using the micro-framework Silex, as well as Bootstrap..._
+This web app is designed to. The app was built using the micro-framework Silex, as well as Bootstrap...
 
-_The goal of this project was to..._
+The goal of this project was to...
 
 ## Setup/Installation Requirements
 
@@ -23,13 +23,13 @@ _No Known Bugs at this Time._
 
 ## Support and contact details
 
-_If you have any questions, concerns, or feedback, please contact the author through_ [gitHub](https://github.com/Fallenstedt/php-code-review-2).
+If you have any questions, concerns, or feedback, please contact the author through [gitHub](https://github.com/Fallenstedt/php-code-review-2).
 
 ## Technologies Used
 
-_This web application was created using the_  [Silex micro-framework](http://silex.sensiolabs.org/)_, as well_ [Twig](http://twig.sensiolabs.org/)_, a template engine for php._
+This web application was created using the_  [Silex micro-framework](http://silex.sensiolabs.org/)_, as well_ [Twig](http://twig.sensiolabs.org/)_, a template engine for php.
 
-_Javascript? with Chai/Mocha for testing?_
+Javascript? with Chai/Mocha for testing?
 
 ### License
 
