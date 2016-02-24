@@ -20,7 +20,7 @@ class Restaurant
 
     function setName($new_res_name)
     {
-         return $this->res_name = (string) $new_res_name;
+        return $this->res_name = (string) $new_res_name;
     }
 
     function getID()
@@ -37,6 +37,12 @@ class Restaurant
     {
         $GLOBALS['DB']->exec("INSERT INTO restaurants (name, cuisine_id) VALUES ('{$this->getName()}', {$this->getCuisineID()})");
         $this->id = $GLOBALS['DB']->lastInsertId();
+    }
+
+    static function getAll()
+    {
+        $GLOBALS['DB']->query("SELECT * FROM restaurants;");
+        //empty array, for each, ['name'], push to array etc.
     }
 
 }
