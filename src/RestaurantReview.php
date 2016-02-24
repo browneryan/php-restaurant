@@ -1,6 +1,6 @@
 <?php
 
-class Review
+class RestaurantReview
 {
     private $review;
     private $id;
@@ -20,7 +20,7 @@ class Review
 
     function setReview($new_review)
     {
-        return $this->description = (string) $new_description;
+        return $this->review = (string) $new_review;
     }
 
     function getID()
@@ -31,6 +31,11 @@ class Review
     function getResID()
     {
         return $this->res_id;
+    }
+
+    function save()
+    {
+        $GLOBALS['DB']->exec("INSERT INTO restaurant_review(review, id, res_id) VALUES ('{$this->getReview()}', {$this->getID()})");
     }
 
 }
