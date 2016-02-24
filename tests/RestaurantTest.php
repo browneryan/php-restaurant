@@ -34,7 +34,7 @@
 
               $res_name = 'Kachka';
               $description = 'Yum yum!';
-              $cuisine_id = $test_myCuisine->getID();
+              $cuisine_id = $test_myCuisine->getCuisineID();
               $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
               $test_myRestaurant->save();
 
@@ -54,7 +54,7 @@
             $test_myCuisine->save();
 
             $res_name = 'Kachka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
@@ -75,13 +75,13 @@
             $test_myCuisine->save();
 
             $res_name = 'Kachka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             // Act
-            $result = $test_myRestaurant->getID();
+            $result = $test_myRestaurant->getRestaurantID();
 
             // Assert
             $this->assertEquals(true, is_numeric($result));
@@ -96,13 +96,13 @@
             $test_myCuisine->save();
 
             $res_name = 'Kachka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             // Act
-            $result = $test_myRestaurant->getCuisineID();
+            $result = $test_myRestaurant->getRestaurantID();
 
             // Assert
             $this->assertEquals(true, is_numeric($result));
@@ -117,7 +117,7 @@
             $test_myCuisine->save();
 
             $res_name = 'Kachka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
@@ -138,13 +138,13 @@
             $test_myCuisine->save();
 
             $res_name = 'Kachka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $res_name2 = 'Vladimir';
-            $cuisine_id2 = $test_myCuisine->getID();
+            $cuisine_id2 = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2, $description);
             $test_myRestaurant2->save();
@@ -166,19 +166,19 @@
             $test_myCuisine->save();
 
             $res_name = 'Kachka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $res_name2 = 'Vladimir';
-            $cuisine_id2 = $test_myCuisine->getID();
+            $cuisine_id2 = $test_myCuisine->getCuisineID();
             $description = 'Yum yum!';
             $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2, $description);
             $test_myRestaurant2->save();
 
             //Act
-            $result = Restaurant::find($test_myRestaurant->getID());
+            $result = Restaurant::find($test_myRestaurant->getRestaurantID());
 
             //Assert
             $this->assertEquals([$test_myRestaurant], $result);
@@ -195,19 +195,19 @@
             $res_name = 'Kachka';
             $description = 'Yum yum!';
             $id = null;
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $review = "yum-tastic";//this is a Review
             $id = null;
-            $res_id = $test_myRestaurant->getID();
+            $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview = new RestaurantReview($review, $id, $res_id);
             $test_myReview->save();
 
             $review2 = "It was ok 2/10";//this is a Review
             $id = null;
-            $res_id = $test_myRestaurant->getID();
+            $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview2 = new RestaurantReview($review2, $id, $res_id);
             $test_myReview2->save();
 

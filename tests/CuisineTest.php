@@ -49,7 +49,7 @@
             $this->assertEquals($name, $result);
         }
 
-        function test_getID_ofCuisine()
+        function test_getCuisineID_ofCuisine()
         {
             //Arrange
             $name = 'Mexican Food';
@@ -57,7 +57,7 @@
             $test_myCuisine = new Cuisine($name, $id);
 
             //Act
-            $result = $test_myCuisine->getID();
+            $result = $test_myCuisine->getCuisineID();
 
             //Assert
             $this->assertEquals(true, is_numeric($result));
@@ -124,7 +124,7 @@
             $test_myCuisine2->save();
 
             //Act
-            $result = Cuisine::find($test_myCuisine->getID());
+            $result = Cuisine::find($test_myCuisine->getCuisineID());
 
             //Assert
             $this->assertEquals($test_myCuisine, $result);
@@ -141,14 +141,14 @@
             $res_name = 'Kachka';
             $description = 'Yum yum!';
             $id = null;
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $res_name2 = 'Vladimirs';
             $description2 = 'You get nothing else!';
             $id = null;
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id, $description2);
             $test_myRestaurant2->save();
 

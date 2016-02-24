@@ -21,7 +21,7 @@ class Cuisine
         return $this->name = (string) $new_name;
     }
 
-    function getID()
+    function getCuisineID()
     {
         return $this->id;
     }
@@ -55,7 +55,7 @@ class Cuisine
       $found_cuisine = null;
       $all_cuisines = Cuisine::getAll();
       foreach($all_cuisines as $cuisine) {
-          $cuisine_id = $cuisine->getID();
+          $cuisine_id = $cuisine->getCuisineID();
           if ($cuisine_id == $search_id) {
             $found_cuisine = $cuisine;
           }
@@ -67,7 +67,7 @@ class Cuisine
     function findRestaurant_InCuisine()//finding all restaurants in a cuisine
     {
         $restaurant_in_cuisine = array();
-        $get_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurants WHERE cuisine_id = {$this->getID()}");
+        $get_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurants WHERE cuisine_id = {$this->getCuisineID()}");
         foreach($get_restaurants as $restaurant) {
             $name = $restaurant['name'];
             $id = $restaurant['id'];

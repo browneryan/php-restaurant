@@ -23,7 +23,7 @@ class RestaurantReview
         return $this->review = (string) $new_review;
     }
 
-    function getID()
+    function getReviewID()
     {
         return $this->id;
     }
@@ -35,7 +35,7 @@ class RestaurantReview
 
     function save()
     {
-        $GLOBALS['DB']->exec("INSERT INTO restaurant_review(review, id, res_id) VALUES ('{$this->getReview()}', {$this->getID()})");
+        $GLOBALS['DB']->exec("INSERT INTO restaurant_review(review, id, res_id) VALUES ('{$this->getReview()}', {$this->getReviewID()})");
     }
 
     static function deleteAll()

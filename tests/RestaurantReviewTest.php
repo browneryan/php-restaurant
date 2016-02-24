@@ -35,12 +35,12 @@
 
             $res_name = 'Kachka';//RESTAURANT
             $description = 'Delicious Russian food soaked in vodka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $review = "yum-tastic";//this is a Review
-            $res_id = $test_myRestaurant->getID();
+            $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview = new RestaurantReview($review, $id, $res_id);
             $test_myReview->save();
 
@@ -61,17 +61,17 @@
 
             $res_name = 'Kachka';//RESTAURANT
             $description = 'Delicious Russian food soaked in vodka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $review = "yum-tastic";//this is a Review
-            $res_id = $test_myRestaurant->getID();
+            $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview = new RestaurantReview($review, $id, $res_id);
             $test_myReview->save();
 
             //Act
-            $result = $test_myReview->getID($review);
+            $result = $test_myReview->getReviewID($review);
 
             //Assert
             $this->assertEquals(true, is_numeric($result));
@@ -87,17 +87,17 @@
 
             $res_name = 'Kachka';//RESTAURANT
             $description = 'Delicious Russian food soaked in vodka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $review = "yum-tastic";//this is a Review
-            $res_id = $test_myRestaurant->getID();
+            $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview = new RestaurantReview($review, $id, $res_id);
             $test_myReview->save();
 
             //Act
-            $result = $test_myReview->getResID($review);
+            $result = $test_myReview->getRestaurantID($review);
 
             //Assert
             $this->assertEquals(true, is_numeric($result));
@@ -113,17 +113,17 @@
 
             $res_name = 'Kachka';//RESTAURANT
             $description = 'Delicious Russian food soaked in vodka';
-            $cuisine_id = $test_myCuisine->getID();
+            $cuisine_id = $test_myCuisine->getCuisineID();
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $review = "yum-tastic";//this is a Review
-            $res_id = $test_myRestaurant->getID();
+            $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview = new RestaurantReview($review, $id, $res_id);
             $test_myReview->save();
 
             $review2 = "It was ok 2/10";//this is a Review
-            $res_id = $test_myRestaurant->getID();
+            $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview2 = new RestaurantReview($review2, $id, $res_id);
             $test_myReview2->save();
 

@@ -35,7 +35,7 @@ class Restaurant
         return $this->res_name = (string) $new_res_name;
     }
 
-    function getID()
+    function getRestaurantID()
     {
         return $this->id;
     }
@@ -76,7 +76,7 @@ class Restaurant
         $all_restaurants = Restaurant::getAll();
         $found_restaurant = array();
         foreach($all_restaurants as $restaurant){
-            $restaurant_id = $restaurant->getID();
+            $restaurant_id = $restaurant->getRestaurantID();
             if ($restaurant_id == $search_id){
                 array_push($found_restaurant, $restaurant);
             }
@@ -88,7 +88,7 @@ class Restaurant
     function findReviews()//finding all reviews for a restaurant
     {
         $review_in_restaurant = array();
-        $get_reviews = $GLOBALS['DB']->query("SELECT * FROM restaurant_review WHERE res_id = ({$this->getID()})");
+        $get_reviews = $GLOBALS['DB']->query("SELECT * FROM restaurant_review WHERE res_id = ({$this->getRestaurantID()})");
         foreach($get_reviews as $res_review) {
             $review = $res_review['review'];
             $id = $res_review['id'];
