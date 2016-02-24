@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/MyClass.php";
+    require_once __DIR__."/../src/Cuisine.php";
 
     $app = new Silex\Application();
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
