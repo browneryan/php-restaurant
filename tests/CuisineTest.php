@@ -7,27 +7,41 @@
         function test_getName_ofCuisine()
         {
             // Arrange
-            $input = 'Mexican Food';
-            $test_myCuisine = new Cuisine($input);
+            $name = 'Mexican Food';
+            $test_myCuisine = new Cuisine($name);
 
             // Act
-            $result = $test_myCuisine->getName($input);
+            $result = $test_myCuisine->getName($name);
 
             // Assert
-            $this->assertEquals($input, $result);
+            $this->assertEquals($name, $result);
         }
 
         function test_setName_ofCuisine()
         {
             //Arrange
-            $input = 'Mexican Food';
-            $test_myCuisine = new Cuisine($input);
+            $name = 'Mexican Food';
+            $test_myCuisine = new Cuisine($name);
 
             //Act
-            $result = $test_myCuisine->setName($input);
+            $result = $test_myCuisine->setName($name);
 
             //Assert
-            $this->assertEquals($input, $result);
+            $this->assertEquals($name, $result);
+        }
+
+        function test_getID_ofCuisine()
+        {
+            //Arrange
+            $name = 'Mexican Food';
+            $id = 1;
+            $test_myCuisine = new Cuisine($name, $id);
+
+            //Act
+            $result = $test_myCuisine->getID();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
         }
     }
 ?>

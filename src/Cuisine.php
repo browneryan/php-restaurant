@@ -15,10 +15,15 @@ class Cuisine
     {
         return $this->name;
     }
+
     function setName($new_name)
     {
         return $this->name = $new_name;
     }
-}
 
+    function getID()
+    {
+        return $this->id;
+    }
+}
 ?>
