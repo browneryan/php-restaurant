@@ -16,11 +16,11 @@
     class TestCuisine extends PHPUnit_Framework_TestCase
     {
 
-        // protected function tearDown()
-        //   {
-        //       Cuisine::deleteAll();
-        //       Restaurant::deleteAll();
-        //   }
+        protected function tearDown()
+          {
+              Cuisine::deleteAll();
+            //   Restaurant::deleteAll();
+          }
 
         function test_getName_ofCuisine()
         {
@@ -60,6 +60,55 @@
 
             //Assert
             $this->assertEquals(true, is_numeric($result));
+        }
+
+        function test_save()
+        {
+            //Arrange
+            $name = 'Mexican Food';
+            $test_myCuisine = new Cuisine($name);
+
+            //Act
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals($name, $result[0]);
+        }
+
+        function test_getAll()
+        {
+            //Arrange
+            $name = 'Mexican Food';
+            $test_myCuisine = new Cuisine($name);
+            $test_myCuisine->save();
+            $name2 = 'Russian Food';
+            $test_myCuisine2 = new Cuisine($name2);
+            $test_myCuisine2->save();
+
+            //Act
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals([$test_myCuisine, $test_myCuisine2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            //Arrange
+            $name = 'Mexican Food';
+            $test_myCuisine = new Cuisine($name);
+            $test_myCuisine->save();
+            $name2 = 'Russian Food';
+            $test_myCuisine2 = new Cuisine($name2);
+            $test_myCuisine2->save();
+
+            //Act
+            Cuisine::deleteAll();
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+
         }
 
     }
