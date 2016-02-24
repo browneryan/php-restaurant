@@ -16,5 +16,18 @@
             // Assert
             $this->assertEquals($input, $result);
         }
+
+        function test_setName_ofCuisine()
+        {
+            //Arrange
+            $input = 'Mexican Food';
+            $test_myCuisine = new Cuisine($input);
+
+            //Act
+            $result = $test_myCuisine->setName($input);
+
+            //Assert
+            $this->assertEquals($input, $result);
+        }
     }
 ?>
