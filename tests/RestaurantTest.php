@@ -32,8 +32,9 @@
               $test_myCuisine->save();
 
               $res_name = 'Kachka';
+              $description = 'Yum yum!';
               $cuisine_id = $test_myCuisine->getID();
-              $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+              $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
               $test_myRestaurant->save();
 
               //Act
@@ -53,7 +54,8 @@
 
             $res_name = 'Kachka';
             $cuisine_id = $test_myCuisine->getID();
-            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $description = 'Yum yum!';
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             //Act
@@ -73,7 +75,8 @@
 
             $res_name = 'Kachka';
             $cuisine_id = $test_myCuisine->getID();
-            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $description = 'Yum yum!';
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             // Act
@@ -93,7 +96,8 @@
 
             $res_name = 'Kachka';
             $cuisine_id = $test_myCuisine->getID();
-            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $description = 'Yum yum!';
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             // Act
@@ -113,7 +117,8 @@
 
             $res_name = 'Kachka';
             $cuisine_id = $test_myCuisine->getID();
-            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $description = 'Yum yum!';
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             //Act
@@ -133,12 +138,14 @@
 
             $res_name = 'Kachka';
             $cuisine_id = $test_myCuisine->getID();
-            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $description = 'Yum yum!';
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $res_name2 = 'Vladimir';
             $cuisine_id2 = $test_myCuisine->getID();
-            $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2);
+            $description = 'Yum yum!';
+            $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2, $description);
             $test_myRestaurant2->save();
 
             //Act
@@ -149,7 +156,7 @@
             $this->assertEquals([], $result);
         }
 
-        function test_find()
+        function test_find()//find just one restaurant in a cuisine
         {
             //Arrange
             $name = "Russian Cuisine";
@@ -159,12 +166,14 @@
 
             $res_name = 'Kachka';
             $cuisine_id = $test_myCuisine->getID();
-            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $description = 'Yum yum!';
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
             $res_name2 = 'Vladimir';
             $cuisine_id2 = $test_myCuisine->getID();
-            $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2);
+            $description = 'Yum yum!';
+            $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2, $description);
             $test_myRestaurant2->save();
 
             //Act

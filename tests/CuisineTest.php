@@ -112,7 +112,7 @@
 
         }
 
-        function test_find()
+        function test_find()//finds all restaurants in a cuisine
         {
             //Arrange
             $name = 'Mexican Food';
