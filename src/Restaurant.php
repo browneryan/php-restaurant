@@ -40,10 +40,36 @@ class Restaurant
     }
 
     static function getAll()
-    {
-        $GLOBALS['DB']->query("SELECT * FROM restaurants;");
-        //empty array, for each, ['name'], push to array etc.
+    {   //empty array, for each, ['name'], push to array etc.
+        $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurants;");
+        $all_restaurants = array();
+        foreach($returned_restaurants as $restaurant) {
+            $restaurant_name = $restaurant['name'];
+            $restaurant_id = $restaurant['id'];
+            $restaurant_cuisine_id = $restaurant['cuisine_id'];
+            $new_restaurant = new Restaurant($restaurant_name, $restaurant_id, $restaurant_cuisine_id);
+            array_push($all_restaurants, $new_restaurant);
+        }
+        return $all_restaurants;
     }
 
+    static function deleteAll()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM restaurants;");
+    }
+
+    static function find($search_id)
+    {
+        $all_restaurants = Restaurant::getAll();
+        $found_restaurant = array();
+        foreach($all_restaurants as $restaurant){
+            $restaurant_id = $restaurant->getID();
+            if ($restaurant_id == $search_id){
+                array_push($found_restaurant, $restaurant);
+            }
+            return $found_restaurant;
+        }
+
+    }
 }
 ?>

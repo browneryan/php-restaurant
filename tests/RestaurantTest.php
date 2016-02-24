@@ -19,7 +19,7 @@
 
         protected function tearDown()
           {
-            //   Restaurant::deleteAll();
+              Restaurant::deleteAll();
               Cuisine::deleteAll();
           }
 
@@ -116,17 +116,64 @@
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
             $test_myRestaurant->save();
 
-            // $res_name2 = 'Vladimir';
-            // $cuisine_id2 = $test_myCuisine->getID();
-            // $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2);
-            // $test_myRestaurant2->save();
-
             //Act
             $result = Restaurant::getAll();
 
             //Assert
-            $this->assertEquals($test_myRestaurant, $result);
+            $this->assertEquals([$test_myRestaurant], $result);
+        }
+
+        function test_deleteAll()
+        {
+            //Arrange
+            $name = "Russian Cuisine";
+            $id = null;
+            $test_myCuisine = new Cuisine($name, $id);
+            $test_myCuisine->save();
+
+            $res_name = 'Kachka';
+            $cuisine_id = $test_myCuisine->getID();
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $test_myRestaurant->save();
+
+            $res_name2 = 'Vladimir';
+            $cuisine_id2 = $test_myCuisine->getID();
+            $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2);
+            $test_myRestaurant2->save();
+
+            //Act
+            Restaurant::deleteAll();
+            $result = Restaurant::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
+        function test_find()
+        {
+            //Arrange
+            $name = "Russian Cuisine";
+            $id = null;
+            $test_myCuisine = new Cuisine($name, $id);
+            $test_myCuisine->save();
+
+            $res_name = 'Kachka';
+            $cuisine_id = $test_myCuisine->getID();
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $test_myRestaurant->save();
+
+            $res_name2 = 'Vladimir';
+            $cuisine_id2 = $test_myCuisine->getID();
+            $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2);
+            $test_myRestaurant2->save();
+
+            //Act
+            $result = Restaurant::find($test_myRestaurant->getID());
+
+            //Assert
+            $this->assertEquals([$test_myRestaurant], $result);
 
         }
+
     }
 ?>
