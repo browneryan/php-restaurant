@@ -18,7 +18,7 @@ class Cuisine
 
     function setName($new_name)
     {
-        return $this->name = $new_name;
+        return $this->name = (string) $new_name;
     }
 
     function getID()
@@ -47,7 +47,7 @@ class Cuisine
 
     static function deleteAll()
     {
-        $GLOBALS['DB']->exec("DELETE FROM cuisines; ");
+        $GLOBALS['DB']->exec("DELETE FROM cuisines;");
     }
 }
 ?>

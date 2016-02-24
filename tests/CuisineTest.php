@@ -67,12 +67,13 @@
             //Arrange
             $name = 'Mexican Food';
             $test_myCuisine = new Cuisine($name);
+            $test_myCuisine->save();
 
             //Act
             $result = Cuisine::getAll();
 
             //Assert
-            $this->assertEquals($name, $result[0]);
+            $this->assertEquals($test_myCuisine, $result[0]);
         }
 
         function test_getAll()
