@@ -112,7 +112,7 @@
 
         }
 
-        function test_find()//finds all restaurants in a cuisine
+        function test_find()//finds all cuisines
         {
             //Arrange
             $name = 'Mexican Food';
@@ -128,6 +128,34 @@
             //Assert
             $this->assertEquals($test_myCuisine, $result);
 
+        }
+
+        function test_findRestaurant_InCuisine()
+        {
+            //Arrange
+            $name = 'Russian Food'; //Cuisine Type
+            $test_myCuisine = new Cuisine($name);
+            $test_myCuisine->save();
+
+            $res_name = 'Kachka';
+            $description = 'Yum yum!';
+            $id = null;
+            $cuisine_id = $test_myCuisine->getID();
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
+            $test_myRestaurant->save();
+
+            $res_name2 = 'Vladimirs';
+            $description2 = 'You get nothing else!';
+            $id = null;
+            $cuisine_id = $test_myCuisine->getID();
+            $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id, $description2);
+            $test_myRestaurant2->save();
+
+            //Act
+            $result = $test_myCuisine->findRestaurant_InCuisine();
+
+            //Assert
+            $this->assertEquals([$test_myRestaurant, $test_myRestaurant2], $result);
         }
 
 

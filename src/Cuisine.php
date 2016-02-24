@@ -62,5 +62,22 @@ class Cuisine
         }
         return $found_cuisine;
     }
+
+    //to get all restaurants that are associated with a specific cuisine.
+    function findRestaurant_InCuisine()//finding all restaurants in a cuisine
+    {
+        $restaurant_in_cuisine = array();
+        $get_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurants WHERE cuisine_id = {$this->getID()}");
+        foreach($get_restaurants as $restaurant) {
+            $name = $restaurant['name'];
+            $id = $restaurant['id'];
+            $cuisine_id = $restaurant['cuisine_id'];
+            $description = $restaurant['description'];
+            $new_restaurant = new Restaurant($name, $id, $cuisine_id, $description);
+            array_push($restaurant_in_cuisine, $new_restaurant);
+        }
+        return $restaurant_in_cuisine;
+    }
+
 }
 ?>

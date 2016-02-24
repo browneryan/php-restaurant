@@ -51,8 +51,8 @@ class Restaurant
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
-    static function getAll()
-    {   //empty array, for each, ['name'], push to array etc.
+    static function getAll()//literally gets all restaurants
+    {
         $returned_restaurants = $GLOBALS['DB']->query("SELECT * FROM restaurants;");
         $all_restaurants = array();
         foreach($returned_restaurants as $restaurant) {
@@ -71,7 +71,7 @@ class Restaurant
         $GLOBALS['DB']->exec("DELETE FROM restaurants;");
     }
 
-    static function find($search_id)
+    static function find($search_id)//finding a specific restaurant
     {
         $all_restaurants = Restaurant::getAll();
         $found_restaurant = array();
@@ -84,5 +84,8 @@ class Restaurant
         }
 
     }
+
+
+
 }
 ?>
