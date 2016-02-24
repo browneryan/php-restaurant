@@ -20,7 +20,7 @@ class Restaurant
 
     function setName($new_res_name)
     {
-        $this->res_name = (string) $new_res_name;
+        return $this->res_name = (string) $new_res_name;
     }
 
     function getID()

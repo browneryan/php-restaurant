@@ -23,6 +23,46 @@
               Cuisine::deleteAll();
           }
 
+          function test_setName()
+          {
+              //Arrange
+              $name = "Russian Cuisine";
+              $id = null;
+              $test_myCuisine = new Cuisine($name, $id);
+              $test_myCuisine->save();
+
+              $res_name = 'Kachka';
+              $cuisine_id = $test_myCuisine->getID();
+              $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+              $test_myRestaurant->save();
+
+              //Act
+              $result = $test_myRestaurant->setName($res_name);
+
+              //Assert
+              $this->assertEquals($res_name, $result);
+          }
+
+        function test_getName()
+        {
+            //Arrange
+            $name = "Russian Cuisine";
+            $id = null;
+            $test_myCuisine = new Cuisine($name, $id);
+            $test_myCuisine->save();
+
+            $res_name = 'Kachka';
+            $cuisine_id = $test_myCuisine->getID();
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
+            $test_myRestaurant->save();
+
+            //Act
+            $result = $test_myRestaurant->getName($res_name);
+
+            //Assert
+            $this->assertEquals($res_name, $result);
+        }
+
         function test_getID_ofRestaurant()
         {
             // Arrange
@@ -33,7 +73,7 @@
 
             $res_name = 'Kachka';
             $cuisine_id = $test_myCuisine->getID();
-            $test_myRestaurant = new Restaurant($name, $id, $cuisine_id);
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id);
             $test_myRestaurant->save();
 
             // Act
