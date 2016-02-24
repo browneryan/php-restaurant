@@ -47,7 +47,7 @@ class Cuisine
 
     static function deleteAll()
     {
-        $GLOBALS['DB']->exec("DELETE FROM cuisines;");
+        $GLOBALS['DB']->exec("DELETE FROM cuisines; ");
     }
 }
 ?>
