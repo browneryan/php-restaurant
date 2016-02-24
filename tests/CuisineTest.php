@@ -19,7 +19,8 @@
         protected function tearDown()
           {
               Cuisine::deleteAll();
-            //   Restaurant::deleteAll();
+              Restaurant::deleteAll();
+              RestaurantReview::deleteAll();
           }
 
         function test_getName_ofCuisine()

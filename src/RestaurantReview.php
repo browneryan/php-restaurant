@@ -38,5 +38,10 @@ class RestaurantReview
         $GLOBALS['DB']->exec("INSERT INTO restaurant_review(review, id, res_id) VALUES ('{$this->getReview()}', {$this->getID()})");
     }
 
+    static function deleteAll()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM restaurant_review;");
+    }
+
 }
 ?>

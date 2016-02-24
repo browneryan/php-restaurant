@@ -21,6 +21,7 @@
           {
               Restaurant::deleteAll();
               Cuisine::deleteAll();
+              RestaurantReview::deleteAll();
           }
 
           function test_setName()
@@ -156,7 +157,7 @@
             $this->assertEquals([], $result);
         }
 
-        function test_find()//find just one restaurant in a cuisine
+        function test_find()//find just one restaurant in all cuisines
         {
             //Arrange
             $name = "Russian Cuisine";
@@ -181,6 +182,40 @@
 
             //Assert
             $this->assertEquals([$test_myRestaurant], $result);
+
+        }
+
+        function test_findReviews_inRestaurant()
+        {
+            //Arrange
+            $name = "Russian Cuisine";
+            $test_myCuisine = new Cuisine($name);
+            $test_myCuisine->save();
+
+            $res_name = 'Kachka';
+            $description = 'Yum yum!';
+            $id = null;
+            $cuisine_id = $test_myCuisine->getID();
+            $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
+            $test_myRestaurant->save();
+
+            $review = "yum-tastic";//this is a Review
+            $id = null;
+            $res_id = $test_myRestaurant->getID();
+            $test_myReview = new RestaurantReview($review, $id, $res_id);
+            $test_myReview->save();
+
+            $review2 = "It was ok 2/10";//this is a Review
+            $id = null;
+            $res_id = $test_myRestaurant->getID();
+            $test_myReview2 = new RestaurantReview($review2, $id, $res_id);
+            $test_myReview2->save();
+
+            //Act
+            $result = $test_myRestaurant->findReviews();
+
+            //Assert
+            $this->assertEquals([$test_myReview, $test_myReview2], $result);
 
         }
 

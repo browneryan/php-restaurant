@@ -18,11 +18,12 @@
     class TestRestaurantReview extends PHPUnit_Framework_TestCase
     {
 
-        // protected function tearDown()
-        // {
-        //     Restaurant::deleteAll();
-        //     RestaurantReview::deleteAll();
-        // }
+        protected function tearDown()
+        {
+            Restaurant::deleteAll();
+            Cuisine::deleteAll();
+            RestaurantReview::deleteAll();
+        }
 
         function test_getReview()
         {
