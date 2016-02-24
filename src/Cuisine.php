@@ -49,5 +49,18 @@ class Cuisine
     {
         $GLOBALS['DB']->exec("DELETE FROM cuisines;");
     }
+
+    static function find($search_id)
+    {
+      $found_cuisine = null;
+      $all_cuisines = Cuisine::getAll();
+      foreach($all_cuisines as $cuisine) {
+          $cuisine_id = $cuisine->getID();
+          if ($cuisine_id == $search_id) {
+            $found_cuisine = $cuisine;
+          }
+        }
+        return $found_cuisine;
+    }
 }
 ?>

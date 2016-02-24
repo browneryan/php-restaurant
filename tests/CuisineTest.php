@@ -112,5 +112,24 @@
 
         }
 
+        function test_find()
+        {
+            //Arrange
+            $name = 'Mexican Food';
+            $test_myCuisine = new Cuisine($name);
+            $test_myCuisine->save();
+            $name2 = 'Russian Food';
+            $test_myCuisine2 = new Cuisine($name2);
+            $test_myCuisine2->save();
+
+            //Act
+            $result = Cuisine::find($test_myCuisine->getID());
+
+            //Assert
+            $this->assertEquals($test_myCuisine, $result);
+
+        }
+
+
     }
 ?>
