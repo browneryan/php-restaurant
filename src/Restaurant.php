@@ -12,7 +12,7 @@ class Restaurant
         $this->res_name = $res_name;
         $this->id = $id;
         $this->cuisine_id = $cuisine_id;
-        $this->description;
+        $this->description = $description;
     }
 
     function getDescription()
