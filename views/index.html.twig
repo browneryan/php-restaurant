@@ -22,7 +22,7 @@
                 <p>Cuisine Types:</p>
                 <ul>
                     {% for cuisine in cuisines %}
-                        <li>{{ cuisine.getName }}</li>
+                        <li><a href="/cuisines/{{ cuisine.getCuisineID }}">{{ cuisine.getName }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}

@@ -20,17 +20,26 @@
 
 //GETTERS
     $app->get("/", function() use ($app) {
+        //takes us to home page, displays all cuisines
         return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
+    });
+
+    $app->get("/cuisines/{id}", function($id) use ($app){
+      //display all restaurants in one cuisine
+      $cuisine = Cuisine::find($id);
+      return $app['twig']->render('cuisines.html.twig', array('cuisine' => $cuisine, 'restaurants' => $cuisine->findRestaurant_InCuisine()));
     });
 
 //POSTERS
     $app->post("/cuisines", function() use ($app){
+        //adding cuisines here
         $cuisine = new Cuisine($_POST['name']);
         $cuisine->save();
         return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
     });
 
     $app->post("/delete_cuisines", function() use ($app) {
+        //deletes all cuisines
         Cuisine::deleteAll();
         return $app['twig']->render('index.html.twig');
     });
