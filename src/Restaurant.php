@@ -88,13 +88,14 @@ class Restaurant
     function findReviews()//finding all reviews for a restaurant
     {
         $review_in_restaurant = array();
-        $get_reviews = $GLOBALS['DB']->query("SELECT * FROM restaurant_review WHERE res_id = ({$this->getRestaurantID()})");
+        $get_reviews = $GLOBALS['DB']->query("SELECT * FROM restaurant_review WHERE res_id = {$this->getRestaurantID()}");
         foreach($get_reviews as $res_review) {
             $review = $res_review['review'];
             $id = $res_review['id'];
             $res_id = $res_review['res_id'];
             $new_restaurant_review = new RestaurantReview($review, $id, $res_id);
             array_push($review_in_restaurant, $new_restaurant_review);
+
         }
 
         return $review_in_restaurant;

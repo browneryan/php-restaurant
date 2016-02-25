@@ -23,19 +23,20 @@ class RestaurantReview
         return $this->review = (string) $new_review;
     }
 
-    function getReviewID()
+    function getReviewID()//gets review ID for restaurant_review table
     {
         return $this->id;
     }
 
-    function getResID()
+    function getResID()//gets primary key for restaurant_review table
     {
         return $this->res_id;
     }
 
     function save()
     {
-        $GLOBALS['DB']->exec("INSERT INTO restaurant_review(review, id, res_id) VALUES ('{$this->getReview()}', {$this->getReviewID()})");
+        $GLOBALS['DB']->exec("INSERT INTO restaurant_review (review, res_id) VALUES ('{$this->getReview()}', {$this->getResID()})");
+        $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
     static function deleteAll()

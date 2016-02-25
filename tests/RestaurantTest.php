@@ -8,6 +8,7 @@
 
     require_once __DIR__ . '/../src/Restaurant.php';
     require_once __DIR__ . '/../src/Cuisine.php';
+    require_once __DIR__ . '/../src/RestaurantReview.php';
 
     $server = 'mysql:host=localhost;dbname=cuisine_test';
         $username = 'root';
@@ -201,12 +202,12 @@
 
             $review = 'yum tastic';//this is a Review
             $res_id = $test_myRestaurant->getRestaurantID();
-            $test_myReview = new RestaurantReview($review, $id, $res_id);
+            $test_myReview = new RestaurantReview($review, null, $res_id);
             $test_myReview->save();
 
             $review2 = 'It was ok';//this is a Review
             $res_id = $test_myRestaurant->getRestaurantID();
-            $test_myReview2 = new RestaurantReview($review2, $id, $res_id);
+            $test_myReview2 = new RestaurantReview($review2, null, $res_id);
             $test_myReview2->save();
 
 
