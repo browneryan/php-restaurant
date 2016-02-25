@@ -18,10 +18,24 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
- // instantiate Silex app, add twig capability to app
+//GETTERS
     $app->get("/", function() use ($app) {
+        return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
+    });
+
+//POSTERS
+    $app->post("/cuisines", function() use ($app){
+        $cuisine = new Cuisine($_POST['name']);
+        $cuisine->save();
+        return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
+    });
+
+    $app->post("/delete_cuisines", function() use ($app) {
+        Cuisine::deleteAll();
         return $app['twig']->render('index.html.twig');
     });
+
+
 
     return $app;
 ?>
