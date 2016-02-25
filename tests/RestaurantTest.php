@@ -188,7 +188,7 @@
         function test_findReviews_inRestaurant()
         {
             //Arrange
-            $name = "Russian Cuisine";
+            $name = 'Russian Cuisine';
             $test_myCuisine = new Cuisine($name);
             $test_myCuisine->save();
 
@@ -199,17 +199,16 @@
             $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
             $test_myRestaurant->save();
 
-            $review = "yum-tastic";//this is a Review
-            $id = null;
+            $review = 'yum tastic';//this is a Review
             $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview = new RestaurantReview($review, $id, $res_id);
             $test_myReview->save();
 
-            $review2 = "It was ok 2/10";//this is a Review
-            $id = null;
+            $review2 = 'It was ok';//this is a Review
             $res_id = $test_myRestaurant->getRestaurantID();
             $test_myReview2 = new RestaurantReview($review2, $id, $res_id);
             $test_myReview2->save();
+
 
             //Act
             $result = $test_myRestaurant->findReviews();

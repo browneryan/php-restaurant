@@ -96,6 +96,7 @@ class Restaurant
             $new_restaurant_review = new RestaurantReview($review, $id, $res_id);
             array_push($review_in_restaurant, $new_restaurant_review);
         }
+
         return $review_in_restaurant;
     }
 
