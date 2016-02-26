@@ -100,12 +100,9 @@ class Restaurant
         return $review_in_restaurant;
     }
 
-    function deleteOneRestaurant()//delete on Restaurant
+    function deleteOneRestaurant()//delete one Restaurant
     {
-
-
-
-
+      $get_restaurant = $GLOBALS['DB']->exec("DELETE FROM restaurants WHERE id = {$this->getRestaurantID()}");
 
     }
 
