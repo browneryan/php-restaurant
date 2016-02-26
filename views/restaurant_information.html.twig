@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include '/includes/head.html.twig' %}
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <h1>{{ restaurant.getName }} </h1>
+        <hr>
+        <h4>Description</h4>
+        <p>{{ restaurant.getDescription }}</p><br>
+      </fieldset><br>
+
+      <form class = "form-inline" action="/" method="get">
+        <div class="form-group">
+          <button class = "btn btn-primary" type="submit">Home</button>
+        </div>
+      </form>
+      <form class="form-inline" action="/DELETE_RESTAURANT" method="post">
+        <div class="form-group">
+          <button class = "btn btn-danger" type="submit">Delete</button>
+        </div>
+      </form>
+      <form class = "form-inline" action="/restaurants/{{ restaurant.getId }}/edit" method="get">
+        <div class="form-group">
+          <button class = "btn btn-primary" type="submit">Edit</button>
+        </div>
+      </form>
+      </div><!--container-->
+  </body>
+</html>

@@ -182,7 +182,7 @@
             $result = Restaurant::find($test_myRestaurant->getRestaurantID());
 
             //Assert
-            $this->assertEquals([$test_myRestaurant], $result);
+            $this->assertEquals($test_myRestaurant, $result);
 
         }
 
@@ -217,6 +217,34 @@
             //Assert
             $this->assertEquals([$test_myReview, $test_myReview2], $result);
 
+        }
+
+        function test_deleteOneRestaurant()
+        {
+          //Arrange
+          $name = 'Russian Cuisine';
+          $test_myCuisine = new Cuisine($name);
+          $test_myCuisine->save();
+
+          $res_name = 'Kachka';
+          $description = 'Yum yum!';
+          $id = null;
+          $cuisine_id = $test_myCuisine->getCuisineID();
+          $test_myRestaurant = new Restaurant($res_name, $id, $cuisine_id, $description);
+          $test_myRestaurant->save();
+
+          $res_name2 = 'Vladimir';
+          $cuisine_id2 = $test_myCuisine->getCuisineID();
+          $description = 'Yum yum!';
+          $test_myRestaurant2 = new Restaurant($res_name2, $id, $cuisine_id2, $description);
+          $test_myRestaurant2->save();
+
+          //Act
+          $test_myRestaurant2->deleteOneRestaurant();
+          $result = Restaurant::getAll();
+
+          //Assert
+          $this->assertEquals([$test_myRestaurant], $result);
         }
 
     }

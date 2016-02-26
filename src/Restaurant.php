@@ -74,15 +74,14 @@ class Restaurant
     static function find($search_id)//finding a specific restaurant
     {
         $all_restaurants = Restaurant::getAll();
-        $found_restaurant = array();
+        $found_restaurant = null;
         foreach($all_restaurants as $restaurant){
             $restaurant_id = $restaurant->getRestaurantID();
             if ($restaurant_id == $search_id){
-                array_push($found_restaurant, $restaurant);
+                $found_restaurant = $restaurant;
             }
-            return $found_restaurant;
         }
-
+          return $found_restaurant;
     }
 
     function findReviews()//finding all reviews for a restaurant
@@ -100,6 +99,29 @@ class Restaurant
 
         return $review_in_restaurant;
     }
+
+    function deleteOneRestaurant()//delete on Restaurant
+    {
+
+
+
+
+
+    }
+
+//     function getCuisineType()
+// {//gets cuisine name based on the cuisine_id of the restaurant
+//     $found_cuisine = null;
+//     $cuisine_id = $this->getCuisineId();
+//     $returned_cuisine = $GLOBALS['DB']->query("SELECT * FROM cuisine;");
+//     foreach($returned_cuisine as $cuisine) {
+//       if ($cuisine_id == $cuisine['id']) {
+//         $found_cuisine = $cuisine['type'];
+//       }
+//     }
+//     return $found_cuisine;
+// }
+
 
 }
 ?>

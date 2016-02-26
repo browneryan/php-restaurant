@@ -13,6 +13,9 @@
                 <ul>
                     {% for restaurant in restaurants %}
                         <li><a href="/restaurants/{{ restaurant.getRestaurantID }}">{{ restaurant.getName }}</a></li>
+                        <ul>
+                          <li>{{ restaurant.getDescription }}</li>
+                        </ul>
                     {% endfor %}
                 </ul>
                 {% else %}
@@ -23,10 +26,18 @@
         </div>
         <div class="col-md-6">
           <form action='/restaurants' method='post'>
-              <input id="cuisine_id" name="cuisine_id" type="hidden" value="{{ cuisine.getId() }}">
+              <input id="cuisine_id" name="cuisine_id" type="hidden" value="{{ cuisine.getCuisineID() }}">
               <label for='name'>Restaurant Name</label>
-              <input id='name' class="form-control" name='name' type='text'>
+              <input id='name' class="form-control" name='name' type='text'><br>
+              <label for='description'>Description</label>
+              <input id='description' class="form-control" name='description' type='text'>
               <button type="submit" class="btn btn-primary">Add Restaurant</button>
+            </form>
+            <form action="/delete_restaurants" method="post">
+              <button class="btn btn-danger" type="submit" name="button">Nuke every restaurant</button>
+            </form>
+            <form action="/" method="get">
+              <button class="btn btn-warning" type="submit" name="button">Home</button>
             </form>
         </div>
       </div>
