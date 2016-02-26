@@ -26,7 +26,6 @@
 //GETTERS RESTAURANTS
     $app->get("/restaurants/{id}", function($id) use ($app){
         $restaurant = Restaurant::find($id);
-        var_dump($restaurant);
         return $app['twig']->render("restaurant_information.html.twig", array('restaurant' => $restaurant));
     });
 
@@ -34,7 +33,6 @@
     $app->get("/cuisines/{id}", function($id) use ($app){
       //display all restaurants in one cuisine
       $cuisine = Cuisine::find($id);
-      var_dump($cuisine);
       return $app['twig']->render('cuisines.html.twig', array('cuisine' => $cuisine, 'restaurants' => $cuisine->findRestaurant_InCuisine()));
     });
 
@@ -61,7 +59,6 @@
         $restaurant = new Restaurant($res_name, $id= null, $cuisine_id, $description);
         $restaurant->save();
         $cuisine = Cuisine::find($cuisine_id);
-        var_dump($restaurant);
         return $app['twig']->render('cuisines.html.twig', array('cuisine' => $cuisine, 'restaurants' => $cuisine->findRestaurant_InCuisine()));
     });
 
@@ -69,6 +66,12 @@
         //deletes all restaurants
         Restaurant::deleteAll();
         return $app['twig']->render('cuisines.html.twig');
+    });
+
+    $app->delete("/delete_single_restaurant/{id}", function($id) use ($app) {
+        $restaurant = Restaurant::find($id);
+        $restaurant->deleteOneRestaurant();
+        return $app['twig']->render('delete_restaurant.html.twig');
     });
 
 

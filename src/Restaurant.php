@@ -118,6 +118,7 @@ class Restaurant
 //     }
 //     return $found_cuisine;
 // }
+//use this for friday code maybe? We could use this to show the stylist on each client's page. :) 
 
 
 }

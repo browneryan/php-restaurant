@@ -17,8 +17,9 @@
           <button class = "btn btn-primary" type="submit">Home</button>
         </div>
       </form>
-      <form class="form-inline" action="/DELETE_RESTAURANT" method="post">
+      <form class="form-inline" action="/delete_single_restaurant/{{ restaurant.getRestaurantID }}" method="post">
         <div class="form-group">
+        <input name="_method" type="hidden" value="delete">
           <button class = "btn btn-danger" type="submit">Delete</button>
         </div>
       </form>
